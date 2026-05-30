@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<title>Freelance Portfolio — Helping Creators & Brands Grow Digitally</title>
+		<meta name="description" content="Professional freelance services for creators, businesses, and modern brands." />
+		<!-- Link to external CSS (style.css) -->
+		<!-- Typography: Playfair Display for big headings to match reference -->
+		<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+			<!-- Loading overlay: plays 'loading animation.mp4' on page load.
+					 The overlay covers the entire viewport and will hide after ~5 seconds.
+					 Attributes: autoplay + muted + playsinline to maximize autoplay compatibility.
+					 File must be placed in project root as 'loading animation.mp4'.
+			-->
+				<div id="loaderOverlay" class="loader-overlay" role="status" aria-live="polite">
+					<video id="loaderVideo" class="loader-video" autoplay muted playsinline>
+						<!-- The file is located in the animation/ folder. Space in filename is URL-encoded below. -->
+						<source src="animation/loading%20animation.mp4" type="video/mp4">
+						Your browser does not support the loading animation video.
+					</video>
+				</div>
+		<!-- Main site wrapper -->
+		<header class="nav" id="top">
+			<div class="container nav-inner">
+			<a class="logo" href="#top">SeeProjectHub
+						<nav class="nav-links">
+							<!-- Home button to jump back to the hero section -->
+							<a href="#home">Home</a>
+							<a href="#services">Services</a>
+							<a href="#about">About</a>
+							<a href="#contact">Contact</a>
+						</nav>
+				<button class="nav-toggle" aria-label="Open menu">☰</button>
+			</div>
+		</header>
+
+			<!-- HERO SECTION -->
+			<section class="hero" id="home">
+				<!-- Background video (fills the hero). Uses file background.mp4 in project root. -->
+				<!-- autoplay, muted and loop attributes are required for modern browsers to allow autoplay. -->
+				<video class="hero-bg-video" autoplay muted loop playsinline id="bgVideo">
+					<source src="background.mp4" type="video/mp4">
+					<!-- Provide a textual fallback for older browsers -->
+					Your browser does not support the video tag.
+				</video>
+				<!-- Dark overlay to improve text readability over the video -->
+				<div class="hero-video-overlay" aria-hidden="true"></div>
+
+				<div class="container hero-grid">
+				<div class="hero-content">
+					<h1 class="headline">Helping Creators & Brands Grow Digitally</h1>
+					<p class="subhead">Professional freelance services for creators, businesses, and modern brands.</p>
+					<div class="hero-cta">
+						<a href="#contact" class="btn btn-primary">Hire Me</a>
+						<a href="#services" class="btn btn-outline">View Services</a>
+					</div>
+					<ul class="hero-features">
+						<li>Fast delivery</li>
+						<li>Premium designs</li>
+						<li>AI-first solutions</li>
+					</ul>
+				</div>
+
+				<!-- Floating visual card / mockup -->
+				<div class="hero-visual" aria-hidden="true">
+					<div class="glass-card floating">
+						<div class="video-thumb">GM</div>
+						<div class="card-info">
+							<h4>Creator Growth</h4>
+							<p>Thumbs, ads & promos</p>
+						</div>
+					</div>
+					<div class="accent-circle"></div>
+				</div>
+					</div>
+			</section>
+
+			
+
+
+
+			<!-- SERVICES SECTION -->
+					<!-- WHO WE ARE SECTION (inserted above Services) -->
+					<section class="who" id="who">
+						<div class="container who-grid">
+							<!-- Left: dark info panel -->
+							<article class="who-panel" data-animate>
+								<h2>Who We Are</h2>
+								<p>SeeProjectHub is a modern freelance creative agency built for the digital-first era. We partner with high-end brands and professional creators to architect a commanding online presence — fusing AI-driven strategy with world-class design to deliver results that are as stunning as they are measurable.</p>
+								<p>Every project is treated as a flagship — because your brand deserves nothing less.</p>
+							</article>
+
+							<!-- Right: visual/image. Place your image at animation/who-image.jpg or update the src below -->
+							<figure class="who-visual" data-animate>
+								<img src="animation/who-image.jpg" alt="Who we are visual" />
+							</figure>
+						</div>
+					</section>
+
+		<section class="services" id="services">
+			<div class="container">
+				<h2 class="section-title">Services</h2>
+				<p class="section-sub">Modern, scalable solutions designed for creators and brands.</p>
+				<div class="services-grid">
+					<!-- Service Card (repeat for each service) -->
+					<article class="service-card" data-animate>
+						<div class="icon">🎬</div>
+						<h3>Video Thumbnail Editing</h3>
+						<p>Create click-ready thumbnails that increase CTR and audience retention.</p>
+					</article>
+
+					<article class="service-card" data-animate>
+						<div class="icon">🤝</div>
+						<h3>Creator Management</h3>
+						<p>Strategic support to grow your channel, partnerships, and revenue.</p>
+					</article>
+
+					<article class="service-card" data-animate>
+						<div class="icon">🤖</div>
+						<h3>AI Model Creation</h3>
+						<p>Custom AI models and assistants tailored to content workflows.</p>
+					</article>
+
+					<article class="service-card" data-animate>
+						<div class="icon">📣</div>
+						<h3>AI Advertising & Promotion</h3>
+						<p>Smart ad creatives and targeting boosted by AI insights.</p>
+					</article>
+
+					<article class="service-card" data-animate>
+						<div class="icon">🌐</div>
+						<h3>Website Designing</h3>
+						<p>Fast, responsive sites with premium UI and conversion focus.</p>
+					</article>
+
+					<article class="service-card" data-animate>
+						<div class="icon">✏️</div>
+						<h3>Logo Designing</h3>
+						<p>Memorable, brand-aligned logos ready for web & print use.</p>
+					</article>
+				</div>
+			</div>
+		</section>
+
+			<!-- CHOOSE US (replaces Why Choose Me) -->
+			<section class="choose" id="choose">
+				<div class="container">
+					<h2 class="section-title">Choose Us</h2>
+					<p class="section-sub" style="margin-top:6px;color:var(--muted);">We don't just deliver — we elevate. Every engagement is backed by a commitment to excellence, speed, and innovation.</p>
+
+					<div class="choose-grid">
+						<article class="choose-card" data-animate>
+							<div class="choose-icon">⚡</div>
+							<h3>Fast Delivery</h3>
+							<p>Rapid turnaround without sacrificing a single pixel of quality.</p>
+						</article>
+
+						<article class="choose-card" data-animate>
+							<div class="choose-icon">💎</div>
+							<h3>Professional Quality</h3>
+							<p>Every deliverable meets the highest creative and technical standards.</p>
+						</article>
+
+						<article class="choose-card" data-animate>
+							<div class="choose-icon">🤖</div>
+							<h3>AI-Powered Solutions</h3>
+							<p>Cutting-edge artificial intelligence integrated into every service we offer.</p>
+						</article>
+
+						<article class="choose-card" data-animate>
+							<div class="choose-icon">🎯</div>
+							<h3>Modern Creative Strategy</h3>
+							<p>Forward-thinking approaches designed for today's digital landscape.</p>
+						</article>
+
+						<article class="choose-card" data-animate>
+							<div class="choose-icon">🤝</div>
+							<h3>Client Satisfaction</h3>
+							<p>Your success is our success — we stay until you're thrilled.</p>
+						</article>
+					</div>
+				</div>
+			</section>
+
+		<!-- PROCESS / WORKFLOW SECTION: "From Vision to Reality" (placed below Choose Us) -->
+			<section class="process" id="process">
+				<div class="container">
+					<h2 class="section-title">From Vision to Reality</h2>
+					<p class="lead" style="margin-bottom:26px;">A streamlined, collaborative workflow designed to move fast without cutting corners. Every project follows a clear path from discovery to delivery.</p>
+
+					<div class="process-grid">
+						<!-- Left: visual diamond cluster with labels -->
+						<div class="process-visual" data-animate>
+							<div class="diamond-wrap">
+								<div class="diamond d1"></div>
+								<div class="diamond d2"></div>
+								<div class="diamond d3"></div>
+								<div class="diamond d4"></div>
+								<div class="diamond d5"></div>
+								<!-- Labels positioned around the diamonds to match reference -->
+								<span class="label l-top-left">Strategize<br/><small>Craft a tailored digital plan.</small></span>
+								<span class="label l-top-right">Create<br/><small>Design, build, and produce with precision.</small></span>
+								<span class="label l-bottom">Discover<br/><small>Understand brand, goals, and audience.</small></span>
+								<span class="label l-bottom-right">Launch<br/><small>Deliver, optimize, and scale.</small></span>
+							</div>
+						</div>
+
+						<!-- Removed image placeholder per request; diagram only -->
+					</div>
+				</div>
+			</section>
+
+		<!-- BY THE NUMBERS SECTION -->
+			<section class="numbers-section" id="numbers">
+				<div class="container">
+					<div class="numbers-header">
+						<span class="numbers-tag">BY THE NUMBERS</span>
+						<h2 class="numbers-title">Results That Define Us</h2>
+						<p class="numbers-subtitle">Numbers don't lie. SeeProjectHub's track record speaks to a relentless focus on quality, speed, and client success across every project we touch.</p>
+					</div>
+					<div class="numbers-grid">
+						<div class="number-card" data-animate>
+							<div class="number-value">200+</div>
+							<div class="number-label">Projects Delivered</div>
+							<div class="number-desc">Across branding, AI, and digital design</div>
+						</div>
+						<div class="number-card" data-animate>
+							<div class="number-value">98%</div>
+							<div class="number-label">Client Satisfaction</div>
+							<div class="number-desc">Consistent five-star feedback</div>
+						</div>
+						<div class="number-card" data-animate>
+							<div class="number-value">24h</div>
+							<div class="number-label">Average Turnaround</div>
+							<div class="number-desc">Fast without compromising quality</div>
+						</div>
+						<div class="number-card" data-animate>
+							<div class="number-value">15+</div>
+							<div class="number-label">Brands Served</div>
+							<div class="number-desc">From startups to enterprise creators</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+		<!-- CONTACT SECTION -->
+			<!-- ABOUT SECTION (moved below Choose Us) -->
+			<section class="about" id="about">
+				<div class="container">
+					<h2 class="section-title">About Me</h2>
+					<p class="lead">I'm a professional freelancer specializing in creative digital solutions — from video thumbnail editing and branding to AI-driven tools and modern website design. I partner with creators and businesses to build attention-grabbing visuals, scalable strategies, and conversion-focused experiences.</p>
+				</div>
+			</section>
+
+		<section class="contact" id="contact">
+			<div class="container contact-grid">
+				<div class="contact-form-wrap">
+					<h2 class="section-title">Contact</h2>
+					<p class="contact-intro">Fill the form and tell me about your project. I'll reply shortly.</p>
+					<form id="contactForm" class="contact-form" novalidate>
+						<!-- Name input -->
+						<label class="label">Name
+							<input type="text" name="name" id="name" placeholder="Your full name" required />
+						</label>
+
+						<!-- Email input -->
+						<label class="label">Email
+							<input type="email" name="email" id="email" placeholder="you@example.com" required />
+						</label>
+
+						<!-- Project details -->
+						<label class="label">Project Details
+							<textarea name="project" id="project" rows="5" placeholder="Describe your project and goals" required></textarea>
+						</label>
+
+						<div class="form-actions">
+							<button type="submit" class="btn btn-primary">Submit Project</button>
+						</div>
+					</form>
+				</div>
+
+				<aside class="contact-info">
+					<div class="glass-block">
+						<h3>Thank you for your interest in my freelance services.</h3>
+						<p>I provide:</p>
+						<ul class="service-list">
+							<li>• Video Thumbnail Editing</li>
+							<li>• Creator Management</li>
+							<li>• AI Model Creation</li>
+							<li>• AI Advertising & Promotion</li>
+							<li>• Website Designing</li>
+							<li>• Logo Designing</li>
+						</ul>
+						<p>Fill out this form with your requirements and project details. I’ll contact you shortly with the best solution for your brand or business.</p>
+						<p class="cta-small">Let’s build something amazing together 🚀</p>
+					</div>
+				</aside>
+			</div>
+		</section>
+
+		<!-- FOOTER -->
+		<footer class="footer">
+			<div class="container footer-inner">
+				<div class="socials">
+					<!-- Social placeholders -->
+					<a href="#" aria-label="Twitter" class="social">T</a>
+					<a href="#" aria-label="LinkedIn" class="social">L</a>
+					<a href="#" aria-label="Instagram" class="social">I</a>
+				</div>
+			<div class="copyright">© <span id="year"></span> SeeProjectHub. All rights reserved.</div>
+			</div>
+		</footer>
+
+		<!-- Include script.js -->
+		<script src="script.js"></script>
+	</body>
+</html>
