@@ -9,7 +9,7 @@
 	--bg:#070707; /* near-black */
 	--panel:#0f0f12; /* dark gray panel */
 	--muted:#9aa3b2; /* subtle text */
-	--accent-purple:#7c5cff;
+	--accent-purple:#7c5SeeProjectHubf;
 	--accent-blue:#3ac0ff;
 	--glass: rgba(255,255,255,0.04);
 	--glass-strong: rgba(255,255,255,0.06);
@@ -505,4 +505,100 @@ h2.section-title{font-family: 'Playfair Display', serif; font-size:48px; font-we
 	}
 }
 
+/* ===========================
+   TESTIMONIALS SECTION
+=========================== */
 
+.testimonials-section {
+    padding: 100px 8%;
+}
+
+.testimonials-title {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.testimonials-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 50px;
+    opacity: 0.8;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.testimonial-card {
+    position: relative;
+    border: 2px solid #0077ff;
+    border-radius: 8px;
+    padding: 30px;
+    min-height: 300px;
+    background: transparent;
+}
+
+.testimonial-card p {
+    font-size: 1.8rem;
+    line-height: 1.5;
+    margin-bottom: 30px;
+}
+
+.testimonial-card h4 {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.quote {
+    color: #3b82f6;
+    font-size: 3rem;
+    position: absolute;
+}
+
+.quote-top {
+    top: -20px;
+    left: -10px;
+}
+
+.quote-bottom {
+    bottom: -25px;
+    right: 10px;
+}
+
+@media (max-width: 992px) {
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===========================
+   TESTIMONIAL CARD ANIMATION
+=========================== */
+
+/* Delay for each testimonial card */
+
+.testimonial-card:nth-child(1) {
+    transition-delay: 0s;
+}
+
+.testimonial-card:nth-child(2) {
+    transition-delay: 0.4s;
+}
+
+.testimonial-card:nth-child(3) {
+    transition-delay: 0.8s;
+}
+}
+/* ===========================
+   hover ANIMATION
+=========================== */
+.testimonial-card {
+    transition: transform 0.4s ease,
+                box-shadow 0.4s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-20px);
+    box-shadow: 0 0 25px rgba(0, 119, 255, 0.35);
+}
