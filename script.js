@@ -77,8 +77,31 @@ if(form){
 	});
 }
 
-// Set current year in footer
-document.getElementById('year').textContent = new Date().getFullYear();
+const teamCards = document.querySelectorAll('.team-card');
+
+const teamObserver = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+        }
+    });
+},{threshold:0.2});
+
+teamCards.forEach(card=>{
+    card.style.opacity = "0";
+    card.style.transform = "translateY(60px)";
+    card.style.transition = "all .8s ease";
+    teamObserver.observe(card);
+});
+
+<!-- FOOTER -->
+// Set current year in footer safely
+const yearEl = document.getElementById('year');
+
+if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
+}
 
 // Small UX: reveal nav links when resizing from mobile to desktop
 window.addEventListener('resize', ()=>{
@@ -195,3 +218,45 @@ window.addEventListener('resize', ()=>{
 			observer.observe(document.documentElement, {childList:true,subtree:true});
 		})();
 
+/* ===========================
+   google form  
+=========================== */
+const showGoogleFormBtn =
+    document.getElementById("showGoogleForm");
+
+const googleFormContainer =
+    document.getElementById("googleFormContainer");
+
+showGoogleFormBtn.addEventListener("click", () => {
+
+    if (
+        googleFormContainer.style.display === "block"
+    ) {
+
+        googleFormContainer.style.display = "none";
+
+        showGoogleFormBtn.textContent =
+            "Open Detailed Google Form";
+
+    } else {
+
+        googleFormContainer.style.display = "block";
+
+        showGoogleFormBtn.textContent =
+            "Hide Detailed Google Form";
+
+        googleFormContainer.scrollIntoView({
+            behavior: "smooth"
+        });
+    }
+});
+
+window.addEventListener("scroll", () => {
+    const nav = document.querySelector(".nav");
+
+    if(window.scrollY > 50){
+        nav.classList.add("scrolled");
+    } else {
+        nav.classList.remove("scrolled");
+    }
+});
