@@ -528,83 +528,43 @@ body{
     font-size:3rem;
 }
 
-.video-grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:30px;
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 1100px;
+    margin: auto;
 }
 
-.video-card{
-    background:#1a1a1a;
-    border-radius:15px;
-    overflow:hidden;
-    padding:15px;
+.video-item {
+    display: contents;
 }
 
-.video-card video{
-    width:100%;
-    height:350px;
-    object-fit:cover;
-    border-radius:10px;
-    cursor:pointer;
+.lazy-video {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #111;
 }
 
-/* reel*/
-
-.portfolio-container{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:40px;
+.lazy-video iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
 }
 
-/* Normal YouTube-style videos */
-.video-card{
-    width:100%;
-    margin-bottom:20px;
+@media (max-width:768px){
+    .video-grid{
+        grid-template-columns:1fr;
+    }
 }
 
-.video-card video{
-    width:100%;
-    height:320px;
-    object-fit:cover;
-    border-radius:12px;
-}
-
-/* Vertical Reels */
-.reel-card{
-    width:280px;
-    margin:0 auto 20px;
-}
-
-.reel-card video{
-    width:100%;
-    height:500px;
-    object-fit:cover;
-    border-radius:20px;
-}
-
-.reel-card{
-    width:300px;
-}
-
-.reel-card video{
-    height:533px; /* 9:16 ratio */
-}
-
-.controls{
-    display:flex;
-    gap:10px;
-    flex-wrap:wrap;
-    margin-top:15px;
-}
-
-.controls button{
-    flex:1;
-    border:none;
-    padding:12px;
-    border-radius:8px;
-    cursor:pointer;
-    font-weight:bold;
+.video-grid iframe {
+    width: 100%;
+    aspect-ratio: 9 / 16; /* vertical videos */
+    border: none;
+    border-radius: 12px;
 }
 
 .hire-btn{
@@ -621,33 +581,6 @@ body{
 
 .hire-btn:hover{
     opacity:.9;
-}
-
-@media(max-width:768px){
-
-    .video-grid{
-        grid-template-columns:1fr;
-    }
-
-    .video-card video{
-        height:250px;
-    }
-
-}
-.hire-btn{
-    display:inline-block;
-    margin-top:20px;
-    padding:12px 30px;
-    background:#7c3aed;
-    color:#fff;
-    text-decoration:none;
-    border-radius:50px;
-    font-weight:600;
-    transition:.3s;
-}
-
-.hire-btn:hover{
-    transform:translateY(-3px);
 }
 
 /* pricing*/
