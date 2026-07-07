@@ -35,132 +35,51 @@ cards.forEach(card => {
 });
 
 //Video
-const videos = document.querySelectorAll("video");
-const observer = new IntersectionObserver((entries)=>{
-    entries.forEach(entry=>{
-        const video = entry.target;
+const observer = new IntersectionObserver((entries) => {
 
-        if(entry.isIntersecting){
+    entries.forEach(entry => {
 
-            video.play();
+        const container = entry.target;
 
-        }else{
+        if (entry.isIntersecting) {
 
-            video.pause();
+            // Load iframe if not already loaded
+            if (!container.querySelector("iframe")) {
 
-            video.muted = true;
+                const iframe = document.createElement("iframe");
 
-            const muteBtn =
-            video.parentElement.querySelector(".mute-btn");
+                iframe.src = container.dataset.src;
 
-            muteBtn.textContent = "🔇 Unmute";
+                iframe.allow =
+                    "autoplay; fullscreen; encrypted-media; picture-in-picture";
+
+                iframe.allowFullscreen = true;
+
+                iframe.loading = "lazy";
+
+                iframe.style.width = "100%";
+                iframe.style.height = "100%";
+                iframe.frameBorder = "0";
+
+                container.appendChild(iframe);
+            }
+
+        } else {
+
+            // Remove iframe when off-screen
+            // This completely stops playback.
+            container.innerHTML = "";
+
         }
 
     });
 
-},{
-    threshold:1
+}, {
+    threshold: 0.6
 });
 
-
-videos.forEach(video=>{
-
+document.querySelectorAll(".lazy-video").forEach(video => {
     observer.observe(video);
-
-    // fullscreen when video clicked
-    video.addEventListener("click",()=>{
-
-        if(video.requestFullscreen){
-            video.requestFullscreen();
-        }
-
-        video.play();
-    });
-
-});
-
-
-document.querySelectorAll("[class$='card']")
-.forEach(card=>{
-
-    const video = card.querySelector("video");
-
-    const playBtn =
-    card.querySelector(".play-btn");
-
-    const muteBtn =
-    card.querySelector(".mute-btn");
-
-    const fullscreenBtn =
-    card.querySelector(".fullscreen-btn");
-
-
-    // Play Pause
-
-    playBtn.addEventListener("click",()=>{
-
-        if(video.paused){
-
-            video.play();
-
-            playBtn.textContent =
-            "⏸ Pause";
-
-        }else{
-
-            video.pause();
-
-            playBtn.textContent =
-            "▶ Play";
-        }
-
-    });
-
-
-    // Mute Unmute
-
-    muteBtn.addEventListener("click",()=>{
-
-        // mute all videos first
-
-        videos.forEach(v=>{
-
-            if(v !== video){
-
-                v.muted = true;
-
-                v.parentElement
-                .querySelector(".mute-btn")
-                .textContent =
-                "🔇 Unmute";
-            }
-
-        });
-
-        video.muted = !video.muted;
-
-        muteBtn.textContent =
-        video.muted
-        ? "🔇 Unmute"
-        : "🔊 Mute";
-
-    });
-
-
-    // Fullscreen
-
-    if(fullscreenBtn){
-        fullscreenBtn.addEventListener("click",()=>{
-
-            if(video.requestFullscreen){
-                video.requestFullscreen();
-            }
-
-            video.play();
-
-        });
-}
-
 });
 
 //faqs
