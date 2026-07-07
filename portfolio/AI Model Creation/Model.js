@@ -64,133 +64,134 @@ document.querySelectorAll('.logo-slider').forEach(sliderContainer => {
 });
 
 //Video
-const videos = document.querySelectorAll("video");
-const observer = new IntersectionObserver((entries)=>{
-    entries.forEach(entry=>{
-        const video = entry.target;
+// Smooth scroll for anchor links
+document.addEventListener('click', function(e){
+	const link = e.target.closest('a');
+	if(!link) return;
+	const href = link.getAttribute('href');
+	if(href && href.startsWith('#')){
+		const el = document.querySelector(href);
+		if(el){
+			e.preventDefault();
+			el.scrollIntoView({behavior:'smooth',block:'start'});
+			// update location hash without jumping
+			history.replaceState(null,'',href);
+		}
+	}
+});
 
-        if(entry.isIntersecting){
+//header
+const navToggle = document.querySelector(".nav-toggle");
+const mobileDropdown = document.querySelector(".mobile-dropdown");
 
-            video.play();
+navToggle.addEventListener("click", () => {
+    mobileDropdown.classList.toggle("active");
+});
 
-        }else{
+const cards = document.querySelectorAll(".card");
 
-            video.pause();
+cards.forEach(card => {
 
-            video.muted = true;
+    card.addEventListener("mouseenter", () => {
 
-            const muteBtn =
-            video.parentElement.querySelector(".mute-btn");
+        card.style.transition = "0.4s";
 
-            muteBtn.textContent = "🔇 Unmute";
+    });
+
+});
+
+//Video
+const observer = new IntersectionObserver((entries) => {
+
+    entries.forEach(entry => {
+
+        const container = entry.target;
+
+        if (entry.isIntersecting) {
+
+            // Load iframe if not already loaded
+            if (!container.querySelector("iframe")) {
+
+                const iframe = document.createElement("iframe");
+
+                iframe.src = container.dataset.src;
+
+                iframe.allow =
+                    "autoplay; fullscreen; encrypted-media; picture-in-picture";
+
+                iframe.allowFullscreen = true;
+
+                iframe.loading = "lazy";
+
+                iframe.style.width = "100%";
+                iframe.style.height = "100%";
+                iframe.frameBorder = "0";
+
+                container.appendChild(iframe);
+            }
+
+        } else {
+
+            // Remove iframe when off-screen
+            // This completely stops playback.
+            container.innerHTML = "";
+
         }
 
     });
 
-},{
-    threshold:1
+}, {
+    threshold: 0.6
 });
 
-
-videos.forEach(video=>{
-
+document.querySelectorAll(".lazy-video").forEach(video => {
     observer.observe(video);
+});
 
-    // fullscreen when video clicked
-    video.addEventListener("click",()=>{
+//faqs
+document.addEventListener("DOMContentLoaded", () => {
 
-        if(video.requestFullscreen){
-            video.requestFullscreen();
-        }
+    const faqButtons = document.querySelectorAll(".faq-question");
 
-        video.play();
+    faqButtons.forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            const answer = button.nextElementSibling;
+            const icon = button.querySelector("span");
+
+            if (answer.style.maxHeight) {
+                answer.style.maxHeight = null;
+                icon.textContent = "+";
+            } else {
+                answer.style.maxHeight = answer.scrollHeight + "px";
+                icon.textContent = "−";
+            }
+
+        });
+
     });
 
 });
 
+//FOOTER
+// Set current year in footer safely
+const yearEl = document.getElementById('year');
 
-document.querySelectorAll("[class$='card']")
-.forEach(card=>{
-
-    const video = card.querySelector("video");
-
-    const playBtn =
-    card.querySelector(".play-btn");
-
-    const muteBtn =
-    card.querySelector(".mute-btn");
-
-    const fullscreenBtn =
-    card.querySelector(".fullscreen-btn");
-
-
-    // Play Pause
-
-    playBtn.addEventListener("click",()=>{
-
-        if(video.paused){
-
-            video.play();
-
-            playBtn.textContent =
-            "⏸ Pause";
-
-        }else{
-
-            video.pause();
-
-            playBtn.textContent =
-            "▶ Play";
-        }
-
-    });
-
-
-    // Mute Unmute
-
-    muteBtn.addEventListener("click",()=>{
-
-        // mute all videos first
-
-        videos.forEach(v=>{
-
-            if(v !== video){
-
-                v.muted = true;
-
-                v.parentElement
-                .querySelector(".mute-btn")
-                .textContent =
-                "🔇 Unmute";
-            }
-
-        });
-
-        video.muted = !video.muted;
-
-        muteBtn.textContent =
-        video.muted
-        ? "🔇 Unmute"
-        : "🔊 Mute";
-
-    });
-
-
-    // Fullscreen
-
-    if(fullscreenBtn){
-        fullscreenBtn.addEventListener("click",()=>{
-
-            if(video.requestFullscreen){
-                video.requestFullscreen();
-            }
-
-            video.play();
-
-        });
+if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
 }
 
+// Small UX: reveal nav links when resizing from mobile to desktop
+window.addEventListener('resize', ()=>{
+	if(window.innerWidth > 720){
+		document.querySelector('.nav-links').style.display = 'flex';
+	} else {
+		document.querySelector('.nav-links').style.display = 'none';
+		document.querySelector('.nav-toggle').classList.remove('open');
+	}
 });
+
 //FOOTER 
 // Set current year in footer safely
 const yearEl = document.getElementById('year');
