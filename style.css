@@ -456,6 +456,7 @@ h2.section-title{font-family: 'Playfair Display', serif; font-size:48px; font-we
 }
 
 /* PROCESS / WORKFLOW section */
+
 /* Hide "From Vision to Reality" section on mobile */
 @media (max-width: 768px) {
     .process {
