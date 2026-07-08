@@ -578,6 +578,58 @@ body{
     background:rgba(255,255,255,.03);
 }
 
+/* Mobile Pricing Layout */
+@media (max-width: 768px) {
+
+    .pricing-section {
+        padding: 70px 20px;
+    }
+
+    .pricing-table {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .price-card,
+    .addon-card,
+    .custom-card,
+    .reel-card-1,
+    .reel-card-2,
+    .reel-card-3 {
+        width: 100%;
+        max-width: 100%;
+        min-height: auto;
+        grid-column: auto !important;
+        justify-self: stretch;
+    }
+
+    .featured {
+        transform: none;
+    }
+
+    .price-card:hover {
+        transform: none;
+    }
+
+    .pricing-section h2 {
+        font-size: 32px;
+    }
+
+    .price {
+        font-size: 48px;
+    }
+
+    .reel-pricing-heading h3 {
+        font-size: 26px;
+    }
+
+    .addon-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}
 /*FAQS*/
 .faq-section{
     padding:100px 8%;
