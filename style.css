@@ -456,6 +456,13 @@ h2.section-title{font-family: 'Playfair Display', serif; font-size:48px; font-we
 }
 
 /* PROCESS / WORKFLOW section */
+/* Hide "From Vision to Reality" section on mobile */
+@media (max-width: 768px) {
+    .process {
+        display: none;
+    }
+}
+/*main section*/
 .process{
 	/* tuned spacing so the diagram sits ~10px below the lead paragraph (matches reference) */
 	padding:36px 0 18px;
