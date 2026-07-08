@@ -83,7 +83,7 @@ document.querySelectorAll(".lazy-video").forEach(video => {
 });
 
 //faqs
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () = {
 
     const faqButtons = document.querySelectorAll(".faq-question");
 
