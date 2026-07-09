@@ -328,6 +328,20 @@ body{
     font-size:3rem;
 }
 
+@media (max-width: 480px) {
+    .hero {
+        padding: 50px 16px;
+    }
+
+    .hero h1 {
+        font-size: 30px;
+    }
+
+    .hero p {
+        font-size: 15px;
+    }
+}
+
 /* Services Section */
 .services-section{
     padding:100px 8%;
