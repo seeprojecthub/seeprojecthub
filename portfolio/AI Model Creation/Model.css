@@ -583,6 +583,60 @@ body{
     opacity:.9;
 }
 
+/* Prevent horizontal scrolling on mobile */
+html,
+body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+
+    .hero,
+    .portfolio,
+    .content,
+    .video-grid,
+    .lazy-video,
+    .card {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .portfolio {
+        padding: 0 16px 60px;
+        margin: 0 auto;
+        grid-template-columns: 1fr;
+    }
+
+    .portfolio-heading {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .portfolio-heading h1,
+    .portfolio h1 {
+        font-size: 2rem;
+    }
+
+    .content {
+        padding: 20px;
+    }
+
+    img,
+    iframe,
+    video {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+}
 /* pricing*/
 .pricing-section{
     padding:100px 8%;
