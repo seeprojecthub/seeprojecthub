@@ -301,6 +301,36 @@ body{
     margin:50px 0;
 }
 
+/* Services - Mobile */
+@media (max-width: 768px) {
+    .services-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .service-card {
+        width: 100%;
+        padding: 24px 20px;
+    }
+
+    .service-card .icon {
+        font-size: 28px;
+    }
+
+    .service-card h3 {
+        font-size: 1.3rem;
+    }
+
+    .service-card p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    .portfolio-btn-wrapper {
+        margin: 35px 0;
+    }
+}
 /* body */
 {
     margin:0;
