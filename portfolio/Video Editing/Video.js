@@ -18,20 +18,11 @@ document.addEventListener('click', function(e){
 const navToggle = document.querySelector(".nav-toggle");
 const mobileDropdown = document.querySelector(".mobile-dropdown");
 
-navToggle.addEventListener("click", () => {
-    mobileDropdown.classList.toggle("active");
-});
-const cards = document.querySelectorAll(".card");
-
-cards.forEach(card => {
-
-    card.addEventListener("mouseenter", () => {
-
-        card.style.transition = "0.4s";
-
+if (navToggle && mobileDropdown) {
+    navToggle.addEventListener("click", () => {
+        mobileDropdown.classList.toggle("active");
     });
-
-});
+}
 //faqs
 document.addEventListener("DOMContentLoaded", () = {
 
@@ -68,7 +59,13 @@ if (yearEl) {
 
 // Small UX: reveal nav links when resizing from mobile to desktop
 window.addEventListener('resize', ()=>{
-	if(window.innerWidth > 720){
+    if(window.innerWidth > 720){
+        document.querySelector('.nav-links').style.display = 'flex';
+    } else {
+        document.querySelector('.nav-links').style.display = 'none';
+        document.querySelector('.nav-toggle').classList.remove('open');
+    }
+});
 		document.querySelector('.nav-links').style.display = 'flex';
 	} else {
 		document.querySelector('.nav-links').style.display = 'none';
