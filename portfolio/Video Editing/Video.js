@@ -26,7 +26,7 @@ const cards = document.querySelectorAll(".card");
 
 cards.forEach(card => {
 
-    card.addEventListener("mouseenter", () => {
+    card.addEventListener("mouseenter", () = {
 
         card.style.transition = "0.4s";
 
