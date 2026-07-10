@@ -18,22 +18,11 @@ document.addEventListener('click', function(e){
 const navToggle = document.querySelector(".nav-toggle");
 const mobileDropdown = document.querySelector(".mobile-dropdown");
 
-navToggle.addEventListener("click", () = {
-    mobileDropdown.classList.toggle("active");
-});
-
-const cards = document.querySelectorAll(".card");
-
-cards.forEach(card => {
-
-    card.addEventListener("mouseenter", () = {
-
-        card.style.transition = "0.4s";
-
+if (navToggle && mobileDropdown) {
+    navToggle.addEventListener("click", () => {
+        mobileDropdown.classList.toggle("active");
     });
-
-});
-
+}
 //Video
 const observer = new IntersectionObserver((entries) => {
 
