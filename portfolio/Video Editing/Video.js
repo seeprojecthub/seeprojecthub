@@ -24,7 +24,7 @@ if (navToggle && mobileDropdown) {
     });
 }
 //faqs
-document.addEventListener("DOMContentLoaded", () = {
+document.addEventListener("DOMContentLoaded", () => {
 
     const faqButtons = document.querySelectorAll(".faq-question");
 
