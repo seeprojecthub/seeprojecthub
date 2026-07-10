@@ -18,21 +18,11 @@ document.addEventListener('click', function(e){
 const navToggle = document.querySelector(".nav-toggle");
 const mobileDropdown = document.querySelector(".mobile-dropdown");
 
-navToggle.addEventListener("click", () => {
-    mobileDropdown.classList.toggle("active");
-});
-
-const cards = document.querySelectorAll(".card");
-
-cards.forEach(card => {
-
-    card.addEventListener("mouseenter", () => {
-
-        card.style.transition = "0.4s";
-
+if (navToggle && mobileDropdown) {
+    navToggle.addEventListener("click", () => {
+        mobileDropdown.classList.toggle("active");
     });
-
-});
+}
 // Services Section
 const cards = document.querySelectorAll(".service-card");
 
@@ -104,6 +94,32 @@ const observer = new IntersectionObserver((entries)=>{
 counters.forEach(counter=>observer.observe(counter));
 
 
+//faqs
+document.addEventListener("DOMContentLoaded", () => {
+
+    const faqButtons = document.querySelectorAll(".faq-question");
+
+    faqButtons.forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            const answer = button.nextElementSibling;
+            const icon = button.querySelector("span");
+
+            if (answer.style.maxHeight) {
+                answer.style.maxHeight = null;
+                icon.textContent = "+";
+            } else {
+                answer.style.maxHeight = answer.scrollHeight + "px";
+                icon.textContent = "−";
+            }
+
+        });
+
+    });
+
+});
+
 //FOOTER
 // Set current year in footer safely
 const yearEl = document.getElementById('year');
@@ -114,10 +130,10 @@ if (yearEl) {
 
 // Small UX: reveal nav links when resizing from mobile to desktop
 window.addEventListener('resize', ()=>{
-	if(window.innerWidth > 720){
-		document.querySelector('.nav-links').style.display = 'flex';
-	} else {
-		document.querySelector('.nav-links').style.display = 'none';
-		document.querySelector('.nav-toggle').classList.remove('open');
-	}
+    if(window.innerWidth > 720){
+        document.querySelector('.nav-links').style.display = 'flex';
+    } else {
+        document.querySelector('.nav-links').style.display = 'none';
+        document.querySelector('.nav-toggle').classList.remove('open');
+    }
 });
