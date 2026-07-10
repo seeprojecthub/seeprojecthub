@@ -43,8 +43,6 @@ const observer = new IntersectionObserver((entries) => {
 });
 
 cards.forEach(card => observer.observe(card));
-
-<script>
 const cards = document.querySelectorAll(".service-card");
 
 const observer = new IntersectionObserver((entries) => {
@@ -56,7 +54,6 @@ const observer = new IntersectionObserver((entries) => {
 });
 
 cards.forEach(card => observer.observe(card));
-</script>
 //Trusted by Businesses
 const counters = document.querySelectorAll(".counter");
 
