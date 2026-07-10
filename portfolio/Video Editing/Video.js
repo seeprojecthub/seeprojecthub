@@ -18,7 +18,7 @@ document.addEventListener('click', function(e){
 const navToggle = document.querySelector(".nav-toggle");
 const mobileDropdown = document.querySelector(".mobile-dropdown");
 
-navToggle.addEventListener("click", () => {
+navToggle.addEventListener("click", () = {
     mobileDropdown.classList.toggle("active");
 });
 
