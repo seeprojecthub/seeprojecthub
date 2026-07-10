@@ -18,38 +18,38 @@ document.addEventListener('click', function(e){
 const navToggle = document.querySelector(".nav-toggle");
 const mobileDropdown = document.querySelector(".mobile-dropdown");
 
-navToggle.addEventListener("click", () => {
-    mobileDropdown.classList.toggle("active");
-});
-const cards = document.querySelectorAll(".card");
+if (navToggle && mobileDropdown) {
+    navToggle.addEventListener("click", () => {
+        mobileDropdown.classList.toggle("active");
+    });
+}
+//faqs
+document.addEventListener("DOMContentLoaded", () => {
 
-cards.forEach(card => {
+    const faqButtons = document.querySelectorAll(".faq-question");
 
-    card.addEventListener("mouseenter", () => {
+    faqButtons.forEach(button => {
 
-        card.style.transition = "0.4s";
+        button.addEventListener("click", () => {
+
+            const answer = button.nextElementSibling;
+            const icon = button.querySelector("span");
+
+            if (answer.style.maxHeight) {
+                answer.style.maxHeight = null;
+                icon.textContent = "+";
+            } else {
+                answer.style.maxHeight = answer.scrollHeight + "px";
+                icon.textContent = "−";
+            }
+
+        });
 
     });
 
 });
 
-//body
-const cards = document.querySelectorAll(".service-card");
-
-const observer = new IntersectionObserver((entries)=>{
-    entries.forEach(entry=>{
-        if(entry.isIntersecting){
-            entry.target.classList.add("show");
-        }
-    });
-},{
-    threshold:0.2
-});
-
-cards.forEach(card=>{
-    observer.observe(card);
-});
-//FOOTER 
+//FOOTER
 // Set current year in footer safely
 const yearEl = document.getElementById('year');
 
@@ -59,10 +59,10 @@ if (yearEl) {
 
 // Small UX: reveal nav links when resizing from mobile to desktop
 window.addEventListener('resize', ()=>{
-	if(window.innerWidth > 720){
-		document.querySelector('.nav-links').style.display = 'flex';
-	} else {
-		document.querySelector('.nav-links').style.display = 'none';
-		document.querySelector('.nav-toggle').classList.remove('open');
-	}
+    if(window.innerWidth > 720){
+        document.querySelector('.nav-links').style.display = 'flex';
+    } else {
+        document.querySelector('.nav-links').style.display = 'none';
+        document.querySelector('.nav-toggle').classList.remove('open');
+    }
 });
