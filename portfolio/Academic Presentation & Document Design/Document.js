@@ -18,64 +18,12 @@ document.addEventListener('click', function(e){
 const navToggle = document.querySelector(".nav-toggle");
 const mobileDropdown = document.querySelector(".mobile-dropdown");
 
-navToggle.addEventListener("click", () => {
-    mobileDropdown.classList.toggle("active");
-});
-const cards = document.querySelectorAll(".card");
-
-cards.forEach(card => {
-
-    card.addEventListener("mouseenter", () => {
-
-        card.style.transition = "0.4s";
-
+if (navToggle && mobileDropdown) {
+    navToggle.addEventListener("click", () => {
+        mobileDropdown.classList.toggle("active");
     });
-
-});
-
-//slider
-
-document.addEventListener("DOMContentLoaded", () => {
-
-    document.querySelectorAll('.logo-slider').forEach(sliderContainer => {
-
-        const slider = sliderContainer.querySelector('.slides');
-        const images = sliderContainer.querySelectorAll('.slides img');
-        const nextBtn = sliderContainer.querySelector('.next');
-        const prevBtn = sliderContainer.querySelector('.prev');
-
-        let index = 0;
-
-        if (!slider || images.length === 0) return;
-
-        function showSlide() {
-            slider.style.transform = `translateX(-${index * 100}%)`;
-        }
-
-        if (nextBtn) {
-            nextBtn.addEventListener('click', () => {
-                index = (index + 1) % images.length;
-                showSlide();
-            });
-        }
-
-        if (prevBtn) {
-            prevBtn.addEventListener('click', () => {
-                index = (index - 1 + images.length) % images.length;
-                showSlide();
-            });
-        }
-
-        setInterval(() => {
-            index = (index + 1) % images.length;
-            showSlide();
-        }, 3000);
-
-    });
-
-});
-
-//FAq
+}
+//faqs
 document.addEventListener("DOMContentLoaded", () => {
 
     const faqButtons = document.querySelectorAll(".faq-question");
@@ -87,16 +35,11 @@ document.addEventListener("DOMContentLoaded", () => {
             const answer = button.nextElementSibling;
             const icon = button.querySelector("span");
 
-            if (answer.classList.contains("active")) {
-
+            if (answer.style.maxHeight) {
                 answer.style.maxHeight = null;
-                answer.classList.remove("active");
                 icon.textContent = "+";
-
             } else {
-
                 answer.style.maxHeight = answer.scrollHeight + "px";
-                answer.classList.add("active");
                 icon.textContent = "−";
             }
 
@@ -104,28 +47,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
-});
-
-//body  animation 
-const cards = document.querySelectorAll(".portfolio-card");
-
-cards.forEach(card => {
-    card.addEventListener("mousemove", (e) => {
-
-        const rect = card.getBoundingClientRect();
-
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
-        card.style.transform =
-            `perspective(1000px)
-             rotateY(${(x - rect.width/2)/25}deg)
-             rotateX(${-(y - rect.height/2)/25}deg)`;
-    });
-
-    card.addEventListener("mouseleave", () => {
-        card.style.transform = "rotateX(0) rotateY(0)";
-    });
 });
 
 //FOOTER
@@ -138,10 +59,10 @@ if (yearEl) {
 
 // Small UX: reveal nav links when resizing from mobile to desktop
 window.addEventListener('resize', ()=>{
-	if(window.innerWidth > 720){
-		document.querySelector('.nav-links').style.display = 'flex';
-	} else {
-		document.querySelector('.nav-links').style.display = 'none';
-		document.querySelector('.nav-toggle').classList.remove('open');
-	}
+    if(window.innerWidth > 720){
+        document.querySelector('.nav-links').style.display = 'flex';
+    } else {
+        document.querySelector('.nav-links').style.display = 'none';
+        document.querySelector('.nav-toggle').classList.remove('open');
+    }
 });
