@@ -66,9 +66,3 @@ window.addEventListener('resize', ()=>{
         document.querySelector('.nav-toggle').classList.remove('open');
     }
 });
-		document.querySelector('.nav-links').style.display = 'flex';
-	} else {
-		document.querySelector('.nav-links').style.display = 'none';
-		document.querySelector('.nav-toggle').classList.remove('open');
-	}
-});
