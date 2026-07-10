@@ -32,54 +32,6 @@ cards.forEach(card => {
     });
 
 });
-//Video
-const observer = new IntersectionObserver((entries) => {
-
-    entries.forEach(entry => {
-
-        const container = entry.target;
-
-        if (entry.isIntersecting) {
-
-            // Load iframe if not already loaded
-            if (!container.querySelector("iframe")) {
-
-                const iframe = document.createElement("iframe");
-
-                iframe.src = container.dataset.src;
-
-                iframe.allow =
-                    "autoplay; fullscreen; encrypted-media; picture-in-picture";
-
-                iframe.allowFullscreen = true;
-
-                iframe.loading = "lazy";
-
-                iframe.style.width = "100%";
-                iframe.style.height = "100%";
-                iframe.frameBorder = "0";
-
-                container.appendChild(iframe);
-            }
-
-        } else {
-
-            // Remove iframe when off-screen
-            // This completely stops playback.
-            container.innerHTML = "";
-
-        }
-
-    });
-
-}, {
-    threshold: 0.6
-});
-
-document.querySelectorAll(".lazy-video").forEach(video => {
-    observer.observe(video);
-});
-
 //faqs
 document.addEventListener("DOMContentLoaded", () = {
 
