@@ -141,7 +141,6 @@ body{
     font-weight:700;
     letter-spacing:.5px;
 }
-
 /* header*/
 .nav-inner{
     position:relative;
@@ -203,7 +202,6 @@ body{
         display:block;
     }
 }
-
 /* Dropdown Menu */
 
 .dropdown{
