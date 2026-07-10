@@ -628,24 +628,6 @@
     </div>
 </div>
 </section>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-    const faqButtons = document.querySelectorAll(".faq-question");
-
-    faqButtons.forEach(button => {
-        button.addEventListener("click", () => {
-            const answer = button.nextElementSibling;
-
-            if (answer.style.maxHeight) {
-                answer.style.maxHeight = null;
-            } else {
-                answer.style.maxHeight = answer.scrollHeight + "px";
-            }
-        });
-    });
-});
-</script>
-</section>
 <br>
 <br>
 <br>
