@@ -115,8 +115,11 @@ if (yearEl) {
 }
 
 // Small UX: reveal nav links when resizing from mobile to desktop
-window.addEventListener("resize", () => {
-    if (window.innerWidth > 720) {
-        mobileDropdown.classList.remove("active");
-    }
+window.addEventListener('resize', ()=>{
+	if(window.innerWidth > 720){
+		document.querySelector('.nav-links').style.display = 'flex';
+	} else {
+		document.querySelector('.nav-links').style.display = 'none';
+		document.querySelector('.nav-toggle').classList.remove('open');
+	}
 });
